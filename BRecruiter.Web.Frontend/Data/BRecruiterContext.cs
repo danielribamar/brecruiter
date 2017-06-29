@@ -10,6 +10,7 @@ namespace BRecruiter.Web.Frontend.Data
         { }
 
         public DbSet<Skill> Skills { get; set; }
+        public DbSet<Candidate> Candidates { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -17,6 +18,9 @@ namespace BRecruiter.Web.Frontend.Data
 
             modelBuilder.Entity<Skill>().ToTable("brecruiter_skills");
             modelBuilder.Entity<Skill>().HasKey(pk => pk.Id);
+
+            modelBuilder.Entity<Candidate>().ToTable("brecruiter_candidates");
+            modelBuilder.Entity<Candidate>().HasKey(pk => pk.Id);
         }
     }
 }
