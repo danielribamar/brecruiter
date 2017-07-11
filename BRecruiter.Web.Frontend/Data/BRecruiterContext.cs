@@ -36,7 +36,7 @@ namespace BRecruiter.Web.Frontend.Data
             modelBuilder.Entity<CandidateUpdate>().HasKey(pk => pk.Id);
 
             modelBuilder.Entity<CandidateSkill>().ToTable("brecruiter_candidateSkills");
-            modelBuilder.Entity<CandidateSkill>().HasKey(pk => new { pk.CandidateId, pk.SkillId });
+            modelBuilder.Entity<CandidateSkill>().HasKey(p => new { p.CandidateId, p.SkillId });
             modelBuilder.Entity<CandidateSkill>().HasOne(hm => hm.Skill).WithMany(p => p.CandidateSkills);
 
             modelBuilder.Entity<CandidateList>().ToTable("brecruiter_candidateLists");

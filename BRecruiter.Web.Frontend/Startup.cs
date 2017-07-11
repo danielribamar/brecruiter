@@ -63,7 +63,7 @@ namespace BRecruiter.Web.Frontend
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Candidates}/{action=Index}/{id?}");
             });
         }
     }

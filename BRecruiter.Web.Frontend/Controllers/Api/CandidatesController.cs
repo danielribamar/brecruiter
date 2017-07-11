@@ -3,7 +3,9 @@ using BRecruiter.Web.Frontend.Data;
 using BRecruiter.Web.Frontend.Interfaces;
 using BRecruiter.Web.Frontend.Models.Database;
 using BRecruiter.Web.Frontend.Models.ViewModels;
+using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace BRecruiter.Web.Frontend.Controllers.Api
@@ -31,14 +33,28 @@ namespace BRecruiter.Web.Frontend.Controllers.Api
         [Route("addskill")]
         public async Task<IActionResult> AddSkill([FromBody]CandidateSkillViewModel model)
         {
-            if(!ModelState.IsValid)
+            try
             {
-                return BadRequest();
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest();
+                }
+
+                await _candidateManager.AddSkill(
+                    new CandidateSkill
+                    {
+                        CandidateId = model.CandidateId,
+                        SkillId = model.SkillId
+                    });
+
+                return Ok();
+
             }
-
-            await _candidateManager.AddSkill( new CandidateSkill(model));
-
-            return Ok();
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
     }
 }

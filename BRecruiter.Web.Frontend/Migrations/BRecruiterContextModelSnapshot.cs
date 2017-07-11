@@ -103,13 +103,9 @@ namespace BRecruiter.Web.Frontend.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CandidateId");
-
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CandidateId");
 
                     b.ToTable("brecruiter_skills");
                 });
@@ -130,12 +126,12 @@ namespace BRecruiter.Web.Frontend.Migrations
             modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.CandidateSkill", b =>
                 {
                     b.HasOne("BRecruiter.Web.Frontend.Models.Database.Candidate", "Candidate")
-                        .WithMany()
+                        .WithMany("RelationSkills")
                         .HasForeignKey("CandidateId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.Skill", "List")
-                        .WithMany()
+                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.Skill", "Skill")
+                        .WithMany("CandidateSkills")
                         .HasForeignKey("SkillId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -146,13 +142,6 @@ namespace BRecruiter.Web.Frontend.Migrations
                         .WithMany()
                         .HasForeignKey("CandidateId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.Skill", b =>
-                {
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.Candidate")
-                        .WithMany("Skills")
-                        .HasForeignKey("CandidateId");
                 });
         }
     }

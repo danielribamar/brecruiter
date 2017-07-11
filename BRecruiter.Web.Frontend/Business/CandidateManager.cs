@@ -4,6 +4,7 @@ using BRecruiter.Web.Frontend.Models.Database;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BRecruiter.Web.Frontend.Business
@@ -65,7 +66,16 @@ namespace BRecruiter.Web.Frontend.Business
 
         public async Task AddSkill(CandidateSkill model)
         {
-            _context.CandidateSkills.Add(model);
+            var entry = _context.CandidateSkills.FirstOrDefault(p => p.CandidateId == model.CandidateId && p.SkillId == model.SkillId);
+
+            if (entry == null)
+            {
+                await _context.CandidateSkills.AddAsync(model);
+            }
+            else
+            {
+                _context.CandidateSkills.Remove(entry);
+            }
             await _context.SaveChangesAsync();
         }
     }
