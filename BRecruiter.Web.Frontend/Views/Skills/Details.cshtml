@@ -1,0 +1,30 @@
+@using BRecruiter.Web.Frontend.Models.Database
+@model Skill
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<Candidate> candidates = ViewData["candidates"] as IEnumerable<Candidate>;
+    var filteredCandidates = candidates.ToList().Where(p => p.RelationSkills.Any(q => q.SkillId == Model.Id));
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Skill</h4>
+    <hr />
+
+    <h2>@Html.DisplayFor(model => model.Name)</h2>
+
+
+</div>
+<div>
+    <a asp-action="Edit">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+<hr />
+@if (filteredCandidates.Any())
+{
+    <div>
+        @Html.Partial("/Views/Candidates/_Index.cshtml", filteredCandidates)
+    </div>
+}

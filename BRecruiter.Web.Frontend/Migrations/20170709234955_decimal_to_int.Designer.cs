@@ -8,9 +8,10 @@ using BRecruiter.Web.Frontend.Data;
 namespace BRecruiter.Web.Frontend.Migrations
 {
     [DbContext(typeof(BRecruiterContext))]
-    partial class BRecruiterContextModelSnapshot : ModelSnapshot
+    [Migration("20170709234955_decimal_to_int")]
+    partial class decimal_to_int
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -50,8 +51,6 @@ namespace BRecruiter.Web.Frontend.Migrations
 
                     b.HasKey("CandidateId", "ListId");
 
-                    b.HasIndex("ListId");
-
                     b.ToTable("brecruiter_candidateLists");
                 });
 
@@ -62,8 +61,6 @@ namespace BRecruiter.Web.Frontend.Migrations
                     b.Property<int>("SkillId");
 
                     b.HasKey("CandidateId", "SkillId");
-
-                    b.HasIndex("SkillId");
 
                     b.ToTable("brecruiter_candidateSkills");
                 });
@@ -80,8 +77,6 @@ namespace BRecruiter.Web.Frontend.Migrations
                     b.Property<string>("Observations");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CandidateId");
 
                     b.ToTable("brecruiter_candidateUpdates");
                 });
@@ -112,40 +107,6 @@ namespace BRecruiter.Web.Frontend.Migrations
                     b.HasIndex("CandidateId");
 
                     b.ToTable("brecruiter_skills");
-                });
-
-            modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.CandidateList", b =>
-                {
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.Candidate", "Candidate")
-                        .WithMany()
-                        .HasForeignKey("CandidateId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.List", "List")
-                        .WithMany()
-                        .HasForeignKey("ListId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.CandidateSkill", b =>
-                {
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.Candidate", "Candidate")
-                        .WithMany()
-                        .HasForeignKey("CandidateId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.Skill", "List")
-                        .WithMany()
-                        .HasForeignKey("SkillId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.CandidateUpdate", b =>
-                {
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.Candidate", "Candidate")
-                        .WithMany()
-                        .HasForeignKey("CandidateId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.Skill", b =>

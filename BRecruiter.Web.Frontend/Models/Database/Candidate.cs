@@ -15,9 +15,9 @@ namespace BRecruiter.Web.Frontend.Models.Database
         [EmailAddress]
         public string EmailAddress { get; set; }
 
-        public decimal SalaryExpectations { get; set; }
+        public int SalaryExpectations { get; set; }
 
-        public decimal Experience { get; set; }
+        public int Experience { get; set; }
 
         public int Status { get; set; }
 
@@ -25,6 +25,6 @@ namespace BRecruiter.Web.Frontend.Models.Database
 
         public string Curriculum_FileUrl { get; set; }
 
-        public IEnumerable<Skill> Skills { get; set; }
+        public ICollection<CandidateSkill> RelationSkills { get; set; }
     }
 }

@@ -1,0 +1,74 @@
+@model BRecruiter.Web.Frontend.Models.Database.Candidate
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var skills = ViewData["skills"] as IEnumerable<BRecruiter.Web.Frontend.Models.Database.Skill>;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Candidate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaryExpectations)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SalaryExpectations)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Observations)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observations)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curriculum_FileUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curriculum_FileUrl)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<hr />
+
+<div>
+    @Html.Partial("/Views/Partials/UpdateSkillsForCandidate.cshtml", Model, ViewData)
+</div>

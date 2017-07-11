@@ -8,5 +8,7 @@ namespace BRecruiter.Web.Frontend.Models.Database
         public int CandidateId { get; set; }
         public string Observations { get; set; }
         public DateTime Createdate { get; set; }
+        
+        public Candidate Candidate { get; set; }
     }
 }

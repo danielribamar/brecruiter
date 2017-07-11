@@ -1,0 +1,38 @@
+@model BRecruiter.Web.Frontend.Models.Database.Candidate
+@{
+    var skills = ViewData["skills"] as IEnumerable<BRecruiter.Web.Frontend.Models.Database.Skill>;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Skills
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in skills)
+        {
+            <tr>
+                <td width="10px">
+                    @if (Model.RelationSkills.Any(p => p.SkillId == item.Id))
+                    {
+                        @Html.CheckBox(item.Name, new { @id = item.Id, @checked = "true", @class = "candidate_skill", @candidate = Model.Id })
+                    }
+                    else
+                    {
+                        @Html.CheckBox(item.Name, new { @id = item.Id, @class = "candidate_skill", @candidate = Model.Id })
+
+                    }
+
+                </td>
+                <td>
+                    @item.Name
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
