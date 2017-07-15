@@ -2,6 +2,7 @@ using BRecruiter.Web.Frontend.Business;
 using BRecruiter.Web.Frontend.Data;
 using BRecruiter.Web.Frontend.Interfaces;
 using BRecruiter.Web.Frontend.Models.Database;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace BRecruiter.Web.Frontend.Controllers
 {
+    [Authorize]
     public class CandidatesController : Controller
     {
         private IManager<Candidate> _candidateManager;
