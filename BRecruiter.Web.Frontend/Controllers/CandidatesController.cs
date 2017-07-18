@@ -24,6 +24,8 @@ namespace BRecruiter.Web.Frontend.Controllers
         public async Task<ActionResult> Index()
         {
             var candidates = await _candidateManager.Get();
+            var skills = await _skillManager.Get();
+            ViewData["skills"] = skills;
             return View(candidates);
         }
 
@@ -42,6 +44,7 @@ namespace BRecruiter.Web.Frontend.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Candidate model)
+        //public async Task<ActionResult> Create(IFormCollection model)
         {
             try
             {

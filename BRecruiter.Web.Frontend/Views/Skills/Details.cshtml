@@ -2,7 +2,7 @@
 @model Skill
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
     IEnumerable<Candidate> candidates = ViewData["candidates"] as IEnumerable<Candidate>;
     var filteredCandidates = candidates.ToList().Where(p => p.RelationSkills.Any(q => q.SkillId == Model.Id));
 }

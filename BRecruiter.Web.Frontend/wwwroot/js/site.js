@@ -8,6 +8,7 @@
             console.log("_init");
             s = this.settings;
             this.bindUIActions();
+            this.datatableActions();
         },
         bindUIActions: function () {
 
@@ -72,7 +73,21 @@
                 });
             }
         },
+        datatableActions: function () {
+            $('.search-skill').on('click', function () {
+                var search = $('input[type=search]');
+                search.focusin();
+
+                var temp = search.val() + "asdasd";
+                search.val(temp);
+                console.log(search);
+              
+                search.trigger(jQuery.Event('keypress', { keycode: 13 }));
+
+            });
+        }
     };
+
 
 (function () {
 

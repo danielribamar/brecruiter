@@ -23,6 +23,8 @@ namespace BRecruiter.Web.Frontend.Migrations
 
                     b.Property<DateTime>("BirthDate");
 
+                    b.Property<DateTime>("CreatedDate");
+
                     b.Property<string>("Curriculum_FileUrl");
 
                     b.Property<string>("EmailAddress");
@@ -42,24 +44,13 @@ namespace BRecruiter.Web.Frontend.Migrations
                     b.ToTable("brecruiter_candidates");
                 });
 
-            modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.CandidateList", b =>
-                {
-                    b.Property<int>("CandidateId");
-
-                    b.Property<int>("ListId");
-
-                    b.HasKey("CandidateId", "ListId");
-
-                    b.HasIndex("ListId");
-
-                    b.ToTable("brecruiter_candidateLists");
-                });
-
             modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.CandidateSkill", b =>
                 {
                     b.Property<int>("CandidateId");
 
                     b.Property<int>("SkillId");
+
+                    b.Property<DateTime>("CreatedDate");
 
                     b.HasKey("CandidateId", "SkillId");
 
@@ -68,59 +59,18 @@ namespace BRecruiter.Web.Frontend.Migrations
                     b.ToTable("brecruiter_candidateSkills");
                 });
 
-            modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.CandidateUpdate", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CandidateId");
-
-                    b.Property<DateTime>("Createdate");
-
-                    b.Property<string>("Observations");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CandidateId");
-
-                    b.ToTable("brecruiter_candidateUpdates");
-                });
-
-            modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.List", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("brecruiter_lists");
-                });
-
             modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.Skill", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CreatedDate");
 
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
 
                     b.ToTable("brecruiter_skills");
-                });
-
-            modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.CandidateList", b =>
-                {
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.Candidate", "Candidate")
-                        .WithMany()
-                        .HasForeignKey("CandidateId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.List", "List")
-                        .WithMany()
-                        .HasForeignKey("ListId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.CandidateSkill", b =>
@@ -133,14 +83,6 @@ namespace BRecruiter.Web.Frontend.Migrations
                     b.HasOne("BRecruiter.Web.Frontend.Models.Database.Skill", "Skill")
                         .WithMany("CandidateSkills")
                         .HasForeignKey("SkillId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.CandidateUpdate", b =>
-                {
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.Candidate", "Candidate")
-                        .WithMany()
-                        .HasForeignKey("CandidateId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }
