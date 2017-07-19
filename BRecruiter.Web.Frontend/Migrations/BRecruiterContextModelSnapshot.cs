@@ -27,8 +27,6 @@ namespace BRecruiter.Web.Frontend.Migrations
 
                     b.Property<byte[]>("Curriculum_File");
 
-                    b.Property<string>("Curriculum_FileUrl");
-
                     b.Property<string>("EmailAddress");
 
                     b.Property<int>("Experience");
@@ -36,6 +34,8 @@ namespace BRecruiter.Web.Frontend.Migrations
                     b.Property<string>("Name");
 
                     b.Property<string>("Observations");
+
+                    b.Property<string>("PhoneNumber");
 
                     b.Property<int>("SalaryExpectations");
 
