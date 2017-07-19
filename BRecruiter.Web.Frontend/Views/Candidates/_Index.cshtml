@@ -27,7 +27,7 @@
                 @Html.DisplayNameFor(model => model.Observations)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Curriculum_FileUrl)
+                @Html.DisplayNameFor(model => model.Curriculum_File)
             </th>
         </tr>
     </thead>
@@ -57,7 +57,7 @@
                     @Html.DisplayFor(modelItem => item.Observations)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Curriculum_FileUrl)
+                    <a asp-action="DownloadFile" asp-controller="Files" asp-route-id="@item.Id" target="_blank">Download</a>
                 </td>
             </tr>
         }

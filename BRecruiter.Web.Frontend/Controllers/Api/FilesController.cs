@@ -1,25 +1,31 @@
+using BRecruiter.Web.Frontend.Business;
+using BRecruiter.Web.Frontend.Data;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace BRecruiter.Web.Frontend.Controllers.Api
 {
-    [Produces("application/json")]
-    [Route("api/files")]
     public class FilesController : Controller
     {
-        [HttpPost]
-        [Route("upload")]
-        public IActionResult Upload()
+        private CandidateManager candidateManager;
+
+        public FilesController(BRecruiterContext context)
         {
-            if (Request.Form.Files != null)
+            candidateManager = new CandidateManager(context);
+        }
+
+        public async Task<IActionResult> DownloadFile(int id)
+        {
+            var candidate = await candidateManager.GetById(id);
+
+            if (candidate == null)
             {
-                return Ok(Guid.NewGuid().ToString("N"));
+                return NotFound();
             }
-            else
-            {
-                return NoContent();
-            }
+            Stream stream = new MemoryStream(candidate.Curriculum_File);
+            return Ok(stream);
         }
     }
 }

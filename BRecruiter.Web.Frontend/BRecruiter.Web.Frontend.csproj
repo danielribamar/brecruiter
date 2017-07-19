@@ -179,6 +179,7 @@
   <ItemGroup>
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Partials\" />
+    <Folder Include="wwwroot\files\cv\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services" />

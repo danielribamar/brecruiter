@@ -23,7 +23,8 @@ namespace BRecruiter.Web.Frontend.Models.Database
 
         public string Observations { get; set; }
 
-        public string Curriculum_FileUrl { get; set; }
+        //public string Curriculum_FileUrl { get; set; }
+        public byte[] Curriculum_File { get; set; }
         public DateTime CreatedDate { get; set; }
 
         public ICollection<CandidateSkill> RelationSkills { get; set; }

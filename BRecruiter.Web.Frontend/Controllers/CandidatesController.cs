@@ -2,10 +2,14 @@ using BRecruiter.Web.Frontend.Business;
 using BRecruiter.Web.Frontend.Data;
 using BRecruiter.Web.Frontend.Interfaces;
 using BRecruiter.Web.Frontend.Models.Database;
+using BRecruiter.Web.Frontend.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BRecruiter.Web.Frontend.Controllers
@@ -43,9 +47,16 @@ namespace BRecruiter.Web.Frontend.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Candidate model)
-        //public async Task<ActionResult> Create(IFormCollection model)
+        public async Task<ActionResult> Create(IFormFile file, Candidate model)
         {
+            if (file != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(memoryStream);
+                    model.Curriculum_File = memoryStream.ToArray();
+                }
+            }
             try
             {
                 var candidate = await _candidateManager.Insert(model);
@@ -64,11 +75,18 @@ namespace BRecruiter.Web.Frontend.Controllers
             return View(candidate);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Candidate model)
+        public async Task<ActionResult> Edit(IFormFile file, Candidate model)
         {
+            if (file != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(memoryStream);
+                    model.Curriculum_File = memoryStream.ToArray();
+                }
+            }
             try
             {
                 await _candidateManager.Update(model);
@@ -105,6 +123,12 @@ namespace BRecruiter.Web.Frontend.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public IActionResult UploadFile()
+        {
+            return View();
         }
     }
 }

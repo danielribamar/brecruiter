@@ -55,10 +55,10 @@
             @Html.DisplayFor(model => model.Observations)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Curriculum_FileUrl)
+            @Html.DisplayNameFor(model => model.Curriculum_File)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Curriculum_FileUrl)
+            <a asp-action="DownloadFile" asp-controller="Files" asp-route-id="@Model.Id" target="_blank">Download CV</a>
         </dd>
     </dl>
 </div>

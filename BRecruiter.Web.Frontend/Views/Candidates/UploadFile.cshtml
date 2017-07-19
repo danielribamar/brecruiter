@@ -1,0 +1,20 @@
+
+@{
+    ViewData["Title"] = "UploadFile";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<form method="post" enctype="multipart/form-data" asp-controller="Candidates" asp-action="UploadFile">
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Upload one or more files using this form:</p>
+            <input type="text" name="Name" />
+            <input type="file" name="File" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Upload" />
+        </div>
+    </div>
+</form>

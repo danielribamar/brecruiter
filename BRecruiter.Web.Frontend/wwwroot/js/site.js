@@ -38,40 +38,6 @@
                     }
                 });
             });
-
-            // Add events
-            $('input[type=file]').on('change', prepareUpload);
-
-            // Grab the files and set them to our variable
-            function prepareUpload(event) {
-                files = event.target.files;
-                console.log(files);
-
-                var data = new FormData();
-                $.each(files, function (key, value) {
-                    data.append(key, value);
-                });
-
-
-                $.ajax({
-                    url: '/api/files/upload/',
-                    type: 'POST',
-                    data: data,
-                    cache: false,
-                    dataType: 'json',
-                    processData: false, // Don't process the files
-                    contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-                    complete: function (e, xhr, settings) {
-                        if (e.status === 200) {
-                            console.log("Success");
-                        } else if (e.status === 304) {
-
-                        } else {
-
-                        }
-                    }
-                });
-            }
         },
         datatableActions: function () {
             $('.search-skill').on('click', function () {
@@ -81,7 +47,7 @@
                 var temp = search.val() + "asdasd";
                 search.val(temp);
                 console.log(search);
-              
+
                 search.trigger(jQuery.Event('keypress', { keycode: 13 }));
 
             });
