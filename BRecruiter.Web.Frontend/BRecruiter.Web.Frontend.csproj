@@ -15,6 +15,7 @@
     <Content Include="wwwroot\dist\css\sb-admin-2.min.css" />
     <Content Include="wwwroot\dist\js\sb-admin-2.js" />
     <Content Include="wwwroot\dist\js\sb-admin-2.min.js" />
+    <Content Include="wwwroot\js\DatetimePicker.js" />
     <Content Include="wwwroot\vendor\bootstrap-social\bootstrap-social.css" />
     <Content Include="wwwroot\vendor\bootstrap-social\bootstrap-social.less" />
     <Content Include="wwwroot\vendor\bootstrap-social\bootstrap-social.scss" />
@@ -75,6 +76,10 @@
     <Content Include="wwwroot\vendor\datatables\js\jquery.dataTables.js" />
     <Content Include="wwwroot\vendor\datatables\js\jquery.dataTables.min.js" />
     <Content Include="wwwroot\vendor\datatables\js\jquery.js" />
+    <Content Include="wwwroot\vendor\datetimepicker\jquery.datetimepicker.css" />
+    <Content Include="wwwroot\vendor\datetimepicker\jquery.datetimepicker.full.min.js" />
+    <Content Include="wwwroot\vendor\datetimepicker\jquery.datetimepicker.js" />
+    <Content Include="wwwroot\vendor\datetimepicker\jquery.datetimepicker.min.js" />
     <Content Include="wwwroot\vendor\flot-tooltip\jquery.flot.tooltip.js" />
     <Content Include="wwwroot\vendor\flot-tooltip\jquery.flot.tooltip.min.js" />
     <Content Include="wwwroot\vendor\flot-tooltip\jquery.flot.tooltip.source.js" />
@@ -139,8 +144,12 @@
     <Content Include="wwwroot\vendor\font-awesome\scss\_spinning.scss" />
     <Content Include="wwwroot\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="wwwroot\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="wwwroot\vendor\jquery\jquery.datetimepicker.js" />
+    <Content Include="wwwroot\vendor\jquery\jquery.datetimepicker.min.js" />
     <Content Include="wwwroot\vendor\jquery\jquery.js" />
+    <Content Include="wwwroot\vendor\jquery\_jquery.js" />
     <Content Include="wwwroot\vendor\jquery\jquery.min.js" />
+    <Content Include="wwwroot\vendor\jquery\_jquery.min.js" />
     <Content Include="wwwroot\vendor\metisMenu\metisMenu.css" />
     <Content Include="wwwroot\vendor\metisMenu\metisMenu.js" />
     <Content Include="wwwroot\vendor\metisMenu\metisMenu.min.css" />

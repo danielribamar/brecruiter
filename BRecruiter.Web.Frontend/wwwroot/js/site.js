@@ -9,6 +9,7 @@
             s = this.settings;
             this.bindUIActions();
             this.datatableActions();
+            this.datetimePickerActions();
         },
         bindUIActions: function () {
 
@@ -51,6 +52,9 @@
                 search.trigger(jQuery.Event('keypress', { keycode: 13 }));
 
             });
+        },
+        datetimePickerActions: function () {
+
         }
     };
 
