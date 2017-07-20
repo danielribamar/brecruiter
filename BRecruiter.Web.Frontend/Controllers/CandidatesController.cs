@@ -33,6 +33,7 @@ namespace BRecruiter.Web.Frontend.Controllers
             return View(candidates);
         }
 
+        [AllowAnonymous]
         public async Task<ActionResult> Details(int id)
         {
             var candidate = await _candidateManager.GetById(id);
