@@ -8,9 +8,10 @@ using BRecruiter.Web.Frontend.Data;
 namespace BRecruiter.Web.Frontend.Migrations
 {
     [DbContext(typeof(BRecruiterContext))]
-    partial class BRecruiterContextModelSnapshot : ModelSnapshot
+    [Migration("20170720235338_lists_candidates")]
+    partial class lists_candidates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

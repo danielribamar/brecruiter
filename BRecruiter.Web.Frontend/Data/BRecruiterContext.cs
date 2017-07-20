@@ -13,9 +13,10 @@ namespace BRecruiter.Web.Frontend.Data
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<CandidateSkill> CandidateSkills { get; set; }
-        //public DbSet<List> Lists { get; set; }
+        public DbSet<List> Lists { get; set; }
+        public DbSet<CandidateList> CandidateLists { get; set; }
         //public DbSet<CandidateUpdate> CandidateUpdates { get; set; }
-        //public DbSet<CandidateList> CandidateLists { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,6 +30,9 @@ namespace BRecruiter.Web.Frontend.Data
             modelBuilder.Entity<CandidateSkill>().HasKey(p => new { p.CandidateId, p.SkillId });
 
             modelBuilder.Entity<Skill>().ToTable("brecruiter_skills");
+
+            modelBuilder.Entity<CandidateList>().HasKey(pk => new { pk.CreatedDate, pk.ListId });
+
         }
     }
 }

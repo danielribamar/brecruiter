@@ -38,7 +38,7 @@ namespace BRecruiter.Web.Frontend.Controllers
             ClaimsPrincipal principal = new ClaimsPrincipal(userIdententity);
             await HttpContext.Authentication.SignInAsync("CookieAuthentication", principal);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dashboard");
         }
 
         [HttpGet]

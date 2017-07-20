@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BRecruiter.Web.Frontend.Models.Database
 {
@@ -7,5 +8,7 @@ namespace BRecruiter.Web.Frontend.Models.Database
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime CreatedDate { get; set; }
+
+        public ICollection<Candidate> Candidates { get; set; }
     }
 }
