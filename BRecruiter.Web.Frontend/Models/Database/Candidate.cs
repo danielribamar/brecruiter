@@ -30,5 +30,6 @@ namespace BRecruiter.Web.Frontend.Models.Database
         public DateTime CreatedDate { get; set; }
 
         public ICollection<CandidateSkill> RelationSkills { get; set; }
+        public College College { get; set; }
     }
 }
