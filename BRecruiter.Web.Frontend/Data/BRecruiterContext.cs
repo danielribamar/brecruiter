@@ -8,7 +8,7 @@ namespace BRecruiter.Web.Frontend.Data
         public BRecruiterContext(DbContextOptions<BRecruiterContext> options)
         : base(options)
         {
-
+           
         }
 
         public DbSet<Candidate> Candidates { get; set; }

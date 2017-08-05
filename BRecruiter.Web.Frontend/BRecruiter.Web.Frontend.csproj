@@ -8,6 +8,7 @@
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
     <ApplicationInsightsResourceId>/subscriptions/7cefe8f1-f846-4a3d-b7a1-7a6ecad51333/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/BRecruiter.Web.Frontend</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/7cefe8f1-f846-4a3d-b7a1-7a6ecad51333/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/BRecruiter.Web.Frontend</ApplicationInsightsAnnotationResourceId>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>

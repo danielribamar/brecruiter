@@ -39,10 +39,10 @@ namespace BRecruiter.Web.Frontend.Business
 
             foreach (var exp in group)
             {
-                var lbl = DateTime.Now.Year - exp.Key > 1 ? "years" : "year";
+                
                 model.Add(new DonutModel
                 {
-                    label = $"{DateTime.Now.Year - exp.Key} {lbl}",
+                    label = $"{DateTime.Now.Year - exp.Key}",
                     value = exp.Count()
                 });
             }

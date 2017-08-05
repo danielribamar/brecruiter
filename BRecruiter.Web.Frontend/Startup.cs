@@ -38,7 +38,7 @@ namespace BRecruiter.Web.Frontend
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            if (env.IsDevelopment())
+            if (!env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
@@ -46,6 +46,12 @@ namespace BRecruiter.Web.Frontend
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+            }
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<BRecruiterContext>();
+                context.Database.Migrate();
             }
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions()
