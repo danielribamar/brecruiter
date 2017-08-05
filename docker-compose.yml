@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  brecruiter.web.frontend:
+    image: brecruiter.web.frontend
+    build:
+      context: ./BRecruiter.Web.Frontend
+      dockerfile: Dockerfile
