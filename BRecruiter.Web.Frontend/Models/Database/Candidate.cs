@@ -12,24 +12,28 @@ namespace BRecruiter.Web.Frontend.Models.Database
 
         public string PhoneNumber { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         [EmailAddress]
         public string EmailAddress { get; set; }
 
-        public int SalaryExpectations { get; set; }
+        public int? SalaryExpectations { get; set; }
 
-        public int Experience { get; set; }
+        public int? Experience { get; set; }
 
-        public int Status { get; set; }
+        public string Availability { get; set; }
+
+        public int? Status { get; set; }
 
         public string Observations { get; set; }
+
+        public string College { get; set; }
 
         //public string Curriculum_FileUrl { get; set; }
         public byte[] Curriculum_File { get; set; }
         public DateTime CreatedDate { get; set; }
 
         public ICollection<CandidateSkill> RelationSkills { get; set; }
-        public College College { get; set; }
+        //public College College { get; set; }
     }
 }

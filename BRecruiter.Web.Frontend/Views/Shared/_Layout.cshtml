@@ -56,12 +56,8 @@
             $('#dataTables-example').DataTable({
                 responsive: true
             });
-            jQuery('#datepicker').datetimepicker({
-                timepicker: false,
-                onChangeDateTime: function (dp, $input) {
-                    console.log($input.val())
-                }
-            });
+            jQuery('#datepicker-birthdate').datetimepicker();
+            jQuery('#datepicker-availability').datetimepicker();
         });
     </script>
 </body>

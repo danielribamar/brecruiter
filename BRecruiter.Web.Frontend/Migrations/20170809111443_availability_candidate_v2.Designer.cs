@@ -8,9 +8,10 @@ using BRecruiter.Web.Frontend.Data;
 namespace BRecruiter.Web.Frontend.Migrations
 {
     [DbContext(typeof(BRecruiterContext))]
-    partial class BRecruiterContextModelSnapshot : ModelSnapshot
+    [Migration("20170809111443_availability_candidate_v2")]
+    partial class availability_candidate_v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -23,9 +24,7 @@ namespace BRecruiter.Web.Frontend.Migrations
 
                     b.Property<string>("Availability");
 
-                    b.Property<DateTime?>("BirthDate");
-
-                    b.Property<string>("College");
+                    b.Property<DateTime>("BirthDate");
 
                     b.Property<int?>("CollegeId");
 
@@ -35,7 +34,7 @@ namespace BRecruiter.Web.Frontend.Migrations
 
                     b.Property<string>("EmailAddress");
 
-                    b.Property<int?>("Experience");
+                    b.Property<int>("Experience");
 
                     b.Property<int?>("ListId");
 
@@ -45,9 +44,9 @@ namespace BRecruiter.Web.Frontend.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.Property<int?>("SalaryExpectations");
+                    b.Property<int>("SalaryExpectations");
 
-                    b.Property<int?>("Status");
+                    b.Property<int>("Status");
 
                     b.HasKey("Id");
 
@@ -143,7 +142,7 @@ namespace BRecruiter.Web.Frontend.Migrations
 
             modelBuilder.Entity("BRecruiter.Web.Frontend.Models.Database.Candidate", b =>
                 {
-                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.College")
+                    b.HasOne("BRecruiter.Web.Frontend.Models.Database.College", "College")
                         .WithMany("Candidates")
                         .HasForeignKey("CollegeId");
 

@@ -53,6 +53,11 @@ namespace BRecruiter.Web.Frontend.Controllers
             {
                 var newSkill = await _skillManager.Insert(skill);
 
+                if(newSkill==null)
+                {
+
+                }
+
                 return RedirectToAction("Index");
             }
             catch

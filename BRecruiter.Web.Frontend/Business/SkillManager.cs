@@ -4,6 +4,7 @@ using BRecruiter.Web.Frontend.Models.Database;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BRecruiter.Web.Frontend.Business
@@ -49,9 +50,13 @@ namespace BRecruiter.Web.Frontend.Business
 
         public async Task<Skill> Insert(Skill model)
         {
-            var entity = await _context.Skills.AddAsync(model);
-            await _context.SaveChangesAsync();
-            return entity.Entity;
+            if (!_context.Skills.Any(p => p.Name.ToLowerInvariant().Equals(model.Name.ToLowerInvariant())))
+            {
+                var entity = await _context.Skills.AddAsync(model);
+                await _context.SaveChangesAsync();
+                return entity.Entity;
+            }
+            return null;
         }
 
         public async Task Update(Skill model)

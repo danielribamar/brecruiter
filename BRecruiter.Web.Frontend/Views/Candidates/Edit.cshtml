@@ -23,7 +23,7 @@
         <div class="form-group">
             <label asp-for="BirthDate" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="BirthDate" class="form-control" id="datepicker"/>
+                <input asp-for="BirthDate" class="form-control" id="datepicker-birthdate"/>
                 <span asp-validation-for="BirthDate" class="text-danger"></span>
             </div>
         </div>
@@ -42,6 +42,13 @@
             </div>
         </div>
         <div class="form-group">
+            <label asp-for="College" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="College" class="form-control" />
+                <span asp-validation-for="College" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
             <label asp-for="SalaryExpectations" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="SalaryExpectations" class="form-control" />
@@ -53,6 +60,13 @@
             <div class="col-md-10">
                 <input asp-for="Experience" class="form-control" />
                 <span asp-validation-for="Experience" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Availability" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Availability" class="form-control" />
+                <span asp-validation-for="Availability" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">
